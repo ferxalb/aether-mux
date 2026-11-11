@@ -1,0 +1,15 @@
+{
+  "name": "@aether-mux/runtime-node",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Light profile: Nodepod (pure Node.js in Web Workers, no native binaries).",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@aether-mux/core": "0.1.0",
+    "@r1ck404/nodepod": "1.11.2"
+  }
+}

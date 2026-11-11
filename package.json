@@ -1,0 +1,28 @@
+{
+  "name": "aether-mux",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local-first browser terminal with swappable Node (Nodepod) and full Linux (BrowserPod) runtimes.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/core",
+    "packages/runtime-node",
+    "packages/runtime-full",
+    "app"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @aether-mux/app",
+    "build": "npm run typecheck && npm run build -w @aether-mux/app",
+    "preview": "npm run preview -w @aether-mux/app",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --experimental-strip-types packages/core/test/*.test.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^22.19.0"
+  },
+  "engines": {
+    "node": ">=22.6"
+  }
+}

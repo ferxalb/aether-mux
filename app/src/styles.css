@@ -1,0 +1,176 @@
+:root {
+  --bg: #0b0e14;
+  --panel: #131722;
+  --line: #232838;
+  --fg: #d7dae0;
+  --muted: #8a90a2;
+  --accent: #5ccfe6;
+  --danger: #f07178;
+  --ok: #bae67e;
+  --warn: #ffd580;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /* dvh tracks the iOS Safari toolbar / soft keyboard; vh is the fallback. */
+  height: 100vh;
+  height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 8px 12px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.field,
+.group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field span {
+  color: var(--muted);
+}
+
+button,
+select,
+input {
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  min-height: 30px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.danger {
+  color: var(--danger);
+}
+
+button.primary {
+  border-color: var(--accent);
+}
+
+#snapshots {
+  max-width: 220px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.badge.on {
+  color: var(--ok);
+  border-color: color-mix(in srgb, var(--ok) 40%, transparent);
+}
+
+.badge.warn {
+  color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 40%, transparent);
+}
+
+.terminal {
+  min-height: 0;
+  overflow: hidden;
+  padding: 6px;
+}
+
+/* ID selector so these win over wterm's own theme variables on the same element. */
+#terminal {
+  --term-font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  --term-bg: var(--bg);
+}
+
+.status {
+  padding: 4px 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  min-height: 24px;
+}
+
+.status[data-state="error"] {
+  color: var(--danger);
+}
+
+.status[data-state="booting"],
+.status[data-state="busy"] {
+  color: var(--warn);
+}
+
+dialog {
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  max-width: min(460px, 92vw);
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+dialog input {
+  width: 100%;
+}
+
+dialog menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0;
+  margin: 12px 0 0;
+}

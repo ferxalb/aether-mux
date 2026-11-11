@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#0b0e14" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <title>AETHER Mux</title>
+  </head>
+  <body>
+    <header class="bar">
+      <strong class="brand">AETHER&nbsp;Mux</strong>
+
+      <label class="field">
+        <span>Profile</span>
+        <select id="profile">
+          <option value="light">light · Nodepod</option>
+          <option value="full">full · BrowserPod</option>
+        </select>
+      </label>
+
+      <div class="group">
+        <button id="snapshot" type="button" title="Encrypt the workspace and save it to this device">Snapshot</button>
+        <select id="snapshots" aria-label="Saved snapshots"></select>
+        <button id="restore" type="button">Restore</button>
+      </div>
+
+      <button id="demo" type="button" title="Write hello.js and run it with node">Run demo</button>
+      <button id="wipe" type="button" class="danger" title="Destroy the encryption key and all local data">Wipe</button>
+
+      <span id="badges" class="badges"></span>
+    </header>
+
+    <main id="terminal" class="terminal"></main>
+
+    <footer class="status" id="status" role="status" aria-live="polite"></footer>
+
+    <dialog id="secret-dialog">
+      <form method="dialog">
+        <p id="secret-description"></p>
+        <input id="secret-input" type="password" autocomplete="off" spellcheck="false" required />
+        <menu>
+          <button value="cancel" formnovalidate>Cancel</button>
+          <button value="ok" class="primary">Save</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

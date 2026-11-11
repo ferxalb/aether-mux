@@ -1,0 +1,14 @@
+{
+  "name": "@aether-mux/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared nucleus: Runtime contract, wterm terminal, encrypted OPFS persistence, session orchestration.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": ["*.css"],
+  "dependencies": {
+    "@wterm/dom": "0.5.10"
+  }
+}
